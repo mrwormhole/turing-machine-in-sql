@@ -172,27 +172,22 @@ BEGIN
     CALL add_transition_rule('q0', 'q1', '0', '_', 'R'); 
     CALL add_transition_rule('q0', 'q2', '1', '_', 'R'); 
     CALL add_transition_rule('q0', 'yes', '_', '_', 'N'); 
-    
     -- q1: 0 was at the beginning, now go to the right-most end
     CALL add_transition_rule('q1', 'q1', '0', '0', 'R'); 
     CALL add_transition_rule('q1', 'q1', '1', '1', 'R'); 
     CALL add_transition_rule('q1', 'q3', '_', '_', 'L'); 
-    
     -- q2: 1 was at the beginning, now go to the right-most end
     CALL add_transition_rule('q2', 'q2', '0', '0', 'R'); 
     CALL add_transition_rule('q2', 'q2', '1', '1', 'R'); 
     CALL add_transition_rule('q2', 'q4', '_', '_', 'L'); 
-    
     -- q3: check if last symbol matches for 0 at the beginning
     CALL add_transition_rule('q3', 'q5', '0', '_', 'L'); 
     CALL add_transition_rule('q3', 'no', '1', '1', 'N'); 
     CALL add_transition_rule('q3', 'yes', '_', '_', 'N'); 
-    
     -- q4: check if last symbol matches for 1 at the beginning
     CALL add_transition_rule('q4', 'q5', '1', '_', 'L'); 
     CALL add_transition_rule('q4', 'no', '0', '0', 'N'); 
     CALL add_transition_rule('q4', 'yes', '_', '_', 'N'); 
-    
     -- q5: now go back to the left-most end
     CALL add_transition_rule('q5', 'q5', '0', '0', 'L'); 
     CALL add_transition_rule('q5', 'q5', '1', '1', 'L'); 
